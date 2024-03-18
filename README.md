@@ -7,21 +7,23 @@ inbyggda Doctest och Unittest samt med det populära externa biblioteket pytest.
 
 # Inför uppgiften
 
-Inför uppgiften, gör så här:
+För att förbereda dig:
 
 1. Lär dig om virtuella miljöer
 
-   - Detta är viktigt för att hålla dina projekt och dess beroenden
-     organiserade.
+   - Det hjälper dig att hålla ordning på ditt projekts beroenden på externa bibliotek. Läs om venv i dokumentationen.
 
-2. Utforska olika sätt att skapa tester
-   - Python erbjuder flera inbyggda verktyg för att skapa tester. Se till att du
-     förstår de tre huvudsakliga metoderna.
-   - För `pytest`, som inte finns i Pythons standardbibliotek, använd Google för
-     att hitta dess officiella webbplats och dokumentation.
-3. Läs om Testdriven utveckling (TDD):
-   - Besök [Test Driven Development](https://martinfowler.com/bliki/TestDrivenDevelopment.html)
-     av Martin Fowler för en grundlig genomgång av TDD-konceptet.
+2. Lär dig hur man skapar tester
+
+   - Lär dig Python-modulerna unittest och doctest för att göra tester. Läs deras dokumentation.
+   - Lär dig även hur man använder pytest för testning. Det finns inte med från början i Python, så läs om det i dokumentationen på dess hemsida.
+
+3. Lär dig om testdriven utveckling (TDD)
+
+   - Läs Martin Fowlers artikel [Test Driven Development](https://martinfowler.com/bliki/TestDrivenDevelopment.html)
+     för en koncis introduktion. TDD är en metod där du skriver ett test först
+     och sedan koden som gör att testet passerat. Det upprepas tills man nått en
+     slutgiltig lösning.
 
 # Beskrivning
 
