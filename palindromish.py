@@ -7,32 +7,35 @@ def palindromish(word, grade=1000) -> bool:
     True
     >>> palindromish([1, 2, 3, 50, 60, 3, 2, 1], 4)
     False
-    >>> palindromish([Hello], 3)
+    >>> palindromish(Hello, 3) # Hur får jag det här att fungera? doctest körs, men felet är utanför funktionen.
     False
     """
 
-    # Convert string to list of chars.
-    if not isinstance(word, list):
-        word = list(str(word))
+    try:
+        # Convert string to list of chars.
+        if not isinstance(word, list):
+            word = list(str(word))
 
-    # Get half length of the word. Dont care about the
-    # middle character if it is uneven, so using floor division.
+        # Get half length of the word. Dont care about the
+        # middle character if it is uneven, so using floor division.
 
-    half_word = len(word) // 2
+        half_word = len(word) // 2
 
-    # Check so that grade is below half length, else set it.
-    if grade > half_word:
-        grade = half_word
+        # Check so that grade is below half length, else set it.
+        if grade > half_word:
+            grade = half_word
 
-    count = 0
-    # Iterate over first and last char of the list, comparing them.
-    # -abs() gets the negative index of the word to read backwards,
-    # but 0 is not a negative index so we need index + 1
-    while count < half_word and word[count] == word[-abs(count + 1)]:
-        count += 1
+        count = 0
+        # Iterate over first and last char of the list, comparing them.
+        # -abs() gets the negative index of the word to read backwards,
+        # but 0 is not a negative index so we need index + 1
+        while count < half_word and word[count] == word[-abs(count + 1)]:
+            count += 1
 
-    if count == grade:
-        return True
+        if count == grade:
+            return True
+    except NameError:
+        return False
 
     return False
 
@@ -40,7 +43,11 @@ def palindromish(word, grade=1000) -> bool:
 if __name__ == "__main__":
     import doctest
 
-    doctest.testmod()
+    try:
+        doctest.testmod()
+    except NameError:
+        print("Nope")
+
     # Skriv exempel på körningar av funktionen här
     #
     # Exempel:

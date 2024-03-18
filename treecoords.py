@@ -21,7 +21,7 @@ def treecoords(tree: dict, current_coord: tuple = ()) -> tuple:
 
         # If not, this is the end of the "chain", add the cordinates and value to the list.
         else:
-            mod_list.extend((coords, value))
+            mod_list.append((coords, value))
 
     # Return a tuple with the total coordinates and the value.
     return tuple(mod_list)
@@ -55,3 +55,5 @@ if __name__ == "__main__":
     print(treecoords({"a": 1, "b": 2}))
     print(treecoords({"x": {"y": 3}, "z": 4}))
     print(treecoords({"root": {"left": 5, "right": {"left": 6, "right": 7}}}))
+    print(treecoords({"a": ["b", "c"]}))
+    print(treecoords())

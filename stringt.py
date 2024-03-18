@@ -33,3 +33,4 @@ if __name__ == "__main__":
     print(stringt([1, 2, 3, 4], [5, 6, 7, 8], "Test", sep="F", end="4."))
     print(stringt(4, 5, 6, 7, 8, "Hej", sep=","))
     print(stringt((3, 5, 7, 9), ("Tuple"), ("LEL", "LOL"), sep="_", end="6."))
+    print(stringt("Det ballar ur"))
