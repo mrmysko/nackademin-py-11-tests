@@ -1,52 +1,80 @@
 import pytest
+import doctest
+import os
 
 
-fn_name = "stringt"
+def test_smoke_stringt():
+    import stringt
+
+    stringt = getattr(stringt, "stringt")
+    assert stringt("a", "b") == "a b\n"
 
 
-class ImportDetailsError(Exception):
-    pass
+def test_smoke_palindromish():
+    import palindromish
+
+    palindromish = getattr(palindromish, "palindromish")
+    assert palindromish("kajak")
 
 
-try:
-    import uppgift
+def test_smoke_treecoords():
+    import treecoords
 
-    fn = getattr(uppgift, fn_name)
+    treecoords = getattr(treecoords, "treecoords")
+    assert treecoords({"a": {"b": {"c": 1}}}) == ((("a", "b", "c"), 1),)
 
-    if not callable(fn):
-        raise ImportDetailsError(f"Function {fn_name} is not callable")
 
-    # Alt #1:
-    #
-    if not fn.__code__.co_argcount == 2:
-        raise ImportDetailsError(f"Function {fn_name} must take exactly two arguments")
+def test_requirements_file():
+    assert os.path.isfile("requirements.txt"), "requirements.txt file does not exist"
+    assert os.path.getsize("requirements.txt") > 0, "requirements.txt file is empty"
 
-    # Alt #2:
-    #
-    # Kontrollera att funktionen accepterar en variabel mängd argument
-    # Notera: Vi kan inte enkelt kontrollera antalet positionella argument för
-    # en funktion som accepterar *args, så vi hoppar över den kontrollen här.
 
-    def test_exempel_1():
-        assert fn("Hej", "världen", sep=", ", end="!") == "Hej, världen!"
+def test_palindromish_doctest():
 
-    def test_exempel_2():
-        assert fn("Python", "är", "kul") == "Python är kul\n"
+    import palindromish
 
-    def test_exempel_3():
-        assert fn("En", "två", "tre", sep=" - ") == "En - två - tre\n"
+    doctest_results = doctest.testmod(palindromish)
 
-    def test_exempel_4():
-        assert fn("Slut", end=".") == "Slut."
+    assert doctest_results.attempted >= 3, "Expected at least three doctests"
 
-    def test_exempel_5():
-        assert fn("Ett", "argument", sep="") == "Ettargument\n"
+    assert doctest_results.failed == 0, "Doctests failed"
 
-    def test_exempel_6():
-        assert fn("Ensam") == "Ensam\n"
 
-except ImportDetailsError as e:
-    pytest.fail(str(e))
+def test_stringt_unittest():
+    import test_stringt
+    import unittest
 
-except ImportError:
-    pytest.fail(f"Function {fn_name} has not been implemented")
+    loader = unittest.TestLoader()
+    suite = loader.loadTestsFromModule(test_stringt)
+
+    assert suite.countTestCases() >= 3, "Expected at least three test cases"
+
+    test_result = suite.run(unittest.TestResult())
+
+    assert not test_result.failures
+
+
+def test_treecoords_pytest():
+    import test_treecoords
+
+    with open(test_treecoords.__file__) as f:
+        content = f.read()
+
+    assert content.count("def test_") >= 3, "Expected at least three tests"
+
+    result = pytest.main([test_treecoords.__file__])
+
+    assert result == 0, "Tests failed"
+
+
+def test_requirements_in_venv():
+
+    import tempfile
+    import subprocess
+
+    with tempfile.TemporaryDirectory() as tmpdirname:
+        subprocess.run(["python3", "-m", "venv", tmpdirname], check=True)
+        subprocess.run(
+            [f"{tmpdirname}/bin/pip", "install", "-r", "requirements.txt"], check=True
+        )
+        subprocess.run([f"{tmpdirname}/bin/pip", "show", "pytest"], check=True)
