@@ -11,12 +11,15 @@ För att förbereda dig:
 
 1. Lär dig om virtuella miljöer
 
-   - Det hjälper dig att hålla ordning på ditt projekts beroenden på externa bibliotek. Läs om venv i dokumentationen.
+   - Det hjälper dig att hålla ordning på ditt projekts beroenden på externa
+     bibliotek. Läs om venv i dokumentationen.
 
 2. Lär dig hur man skapar tester
 
-   - Lär dig Python-modulerna unittest och doctest för att göra tester. Läs deras dokumentation.
-   - Lär dig även hur man använder pytest för testning. Det finns inte med från början i Python, så läs om det i dokumentationen på dess hemsida.
+   - Lär dig Python-modulerna unittest och doctest för att göra tester. Läs
+     deras dokumentation.
+   - Lär dig även hur man använder pytest för testning. Det finns inte med från
+     början i Python, så läs om det i dokumentationen på dess hemsida.
 
 3. Lär dig om testdriven utveckling (TDD)
 
