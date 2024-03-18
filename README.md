@@ -1,14 +1,52 @@
-# Uppgift X - Beskrivande titel
+# Uppgift 11 - Tests
 
 # Syfte
 
-Vad denna uppgift lär ut.
+I den här uppgiften testar vi att skriva tester på tre olika sätt, med de
+inbyggda Doctest och Unittest samt med det populära externa biblioteket pytest.
 
 # Inför uppgiften
 
-- Nödvändiga förberedelsesteg.
+Inför uppgiften, gör så här:
 
-///////////////////////////////////////////////////////////////////////////////
+1. Lär dig om virtuella miljöer
+
+   - Detta är viktigt för att hålla dina projekt och dess beroenden
+     organiserade.
+
+2. Utforska olika sätt att skapa tester
+   - Python erbjuder flera inbyggda verktyg för att skapa tester. Se till att du
+     förstår de tre huvudsakliga metoderna.
+   - För `pytest`, som inte finns i Pythons standardbibliotek, använd Google för
+     att hitta dess officiella webbplats och dokumentation.
+3. Läs om Testdriven utveckling (TDD):
+   - Besök [Test Driven Development](https://martinfowler.com/bliki/TestDrivenDevelopment.html)
+     av Martin Fowler för en grundlig genomgång av TDD-konceptet.
+
+# Beskrivning
+
+I denna uppgift ska du utforska och använda de inbyggda testmöjligheterna i
+Python med unittest och doctest, samt det populära externa testbiblioteket
+pytest. Ditt mål är att skapa tester för tre tidigare genomförda uppgifter.
+Genom att tillämpa dessa olika testmetoder får du en bred förståelse för
+Python-testning och hur du effektivt kan validera din kod.
+
+# Testerna
+
+Här är en tabell som inkluderar information om från vilken uppgift varje
+testscenario kommer, samt de specifika filnamnen och testmetoderna som ska
+användas för varje:
+
+| Uppgiftsfil     | Från Uppgift | Testmetod | Testfil            | Antal Testfall |
+| --------------- | ------------ | --------- | ------------------ | -------------- |
+| palindromish.py | Uppgift 2    | Doctest   | -                  | Minst 3        |
+| stringt.py      | Uppgift 3    | Unittest  | test_stringt.py    | Minst 3        |
+| treecoords.py   | Uppgift 4    | Pytest    | test_treecoords.py | Minst 3        |
+
+När du använder pytest för att skriva och köra tester, är det viktigt att
+organisera ditt arbete på ett sätt som gör det enkelt för andra att replikera
+din testmiljö. Detta gör du genom att skapa en virtuell miljö och en
+`requirements.txt`-fil.
 
 # Inlämningsinstruktioner
 
