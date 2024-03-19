@@ -25,6 +25,4 @@ def test_list_in_dict():
 
 
 def test_no_dict():
-    # Vad är det ens jag ska testa här?
-    # Jag vill ju få AttributeError, men samma funktion hade ju fåtts med treecoords(["a", "b", 2]) i __init__.
     assert treecoords(["a", "b", 2])
