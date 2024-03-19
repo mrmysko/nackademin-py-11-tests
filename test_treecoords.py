@@ -21,8 +21,11 @@ def test_base_case():
 
 
 def test_list_in_dict():
+    # Test if a dict value is a list.
     assert treecoords({"a": ["b", "c"]}) == ((("a",), ["b", "c"]),)
 
 
 def test_no_dict():
-    assert treecoords(["a", "b", 2])
+    # Test if the top sequence is not a dict.
+    with pytest.raises(SystemExit):
+        assert treecoords(["a", "b", 2])

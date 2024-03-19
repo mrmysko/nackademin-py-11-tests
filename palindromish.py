@@ -7,8 +7,6 @@ def palindromish(word, grade=1000) -> bool:
     True
     >>> palindromish([1, 2, 3, 50, 60, 3, 2, 1], 4)
     False
-    >>> palindromish(Hello, 3) # Hur får jag det här att fungera? doctest körs, men felet är utanför funktionen.
-    False
     """
 
     try:
